@@ -1,0 +1,286 @@
+/* styles.css */
+
+/* Reset default browser styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body Styling */
+body {
+    font-family: 'Roboto', sans-serif;
+    transition: background-color 0.5s, color 0.5s;
+    overflow: hidden; /* Prevent scrollbar during animations */
+    position: relative;
+}
+
+/* Dark Theme */
+body.dark-theme {
+    background-color: #121212;
+    color: #f8bbd0; /* Light pink text */
+    background-image: radial-gradient(circle at top left, rgba(255,182,193,0.2), transparent 70%), 
+                      radial-gradient(circle at bottom right, rgba(255,182,193,0.2), transparent 70%);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+/* Light Theme */
+body.light-theme {
+    background-color: #ffffff;
+    color: #d81b60; /* Dark pink text */
+    background-image: radial-gradient(circle at top left, rgba(255,182,193,0.2), transparent 70%), 
+                      radial-gradient(circle at bottom right, rgba(255,182,193,0.2), transparent 70%);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+/* Container Styling */
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    text-align: center;
+    padding: 20px;
+    position: relative;
+    z-index: 1;
+}
+
+/* Content Box */
+.content {
+    background-color: rgba(255, 182, 193, 0.2); /* Light pink with transparency */
+    padding: 40px 30px;
+    border-radius: 15px;
+    max-width: 600px;
+    animation: fadeIn 1s ease-in-out;
+    position: relative;
+    z-index: 2;
+}
+
+/* Message Styling */
+.message {
+    font-family: 'Great Vibes', cursive;
+    font-size: 1.8em;
+    margin-bottom: 30px;
+    opacity: 0;
+    animation: fadeInText 0.5s forwards;
+}
+
+/* Buttons Container */
+.buttons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    opacity: 0;
+    animation: fadeInText 0.5s forwards;
+    animation-delay: 0.3s;
+}
+
+/* Button Styling */
+.btn {
+    background-color: #f48fb1; /* Light pink */
+    border: none;
+    color: white;
+    padding: 15px 25px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1em;
+    transition: background-color 0.3s, transform 0.2s, opacity 0.5s;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    opacity: 0;
+    animation: fadeInButton 0.5s forwards;
+    animation-delay: 0.8s;
+}
+
+.btn:hover {
+    background-color: #f06292; /* Darker pink on hover */
+    transform: translateY(-2px);
+}
+
+.btn:active {
+    transform: translateY(0);
+}
+
+/* Hidden Class */
+.hidden {
+    display: none;
+}
+
+/* Decorations: Floating Hearts */
+@keyframes float {
+    0% { transform: translateY(0) rotate(0deg); opacity: 1; }
+    100% { transform: translateY(-100px) rotate(360deg); opacity: 0; }
+}
+
+.heart {
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    background: red;
+    transform: rotate(45deg);
+    animation: float 5s infinite;
+    opacity: 0.8;
+}
+
+.heart::before,
+.heart::after {
+    content: "";
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    background: red;
+    border-radius: 50%;
+}
+
+.heart::before {
+    top: -15px;
+}
+
+.heart::after {
+    left: 15px;
+}
+
+/* Fade-in text for messages and buttons */
+@keyframes fadeInText {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* Fade-in for buttons */
+@keyframes fadeInButton {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* General Fade-In Animation */
+@keyframes fadeIn {
+    from { opacity: 0; transform: scale(0.95); }
+    to { opacity: 1; transform: scale(1); }
+}
+
+/* Cake Container Styling */
+.cake-container {
+    position: absolute;
+    bottom: 50px; /* Adjust as needed */
+    left: 50%;
+    transform: translateX(-50%) scale(0);
+    opacity: 0;
+    transition: opacity 1.3s ease-in-out, transform 1.3s ease-in-out;
+    z-index: 2;
+}
+
+/* Cake Styling */
+.cake img {
+    max-width: 200px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+/* Background Animations Container */
+.background-animations {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none; /* Allow clicks through */
+    overflow: hidden;
+    z-index: 0;
+}
+
+/* Love Symbols, Balloons, Sparkles, and Yellow Dots */
+@keyframes floatUp {
+    from { transform: translateY(0) scale(1); opacity: 1; }
+    to { transform: translateY(-150px) scale(1.2); opacity: 0; }
+}
+
+.love-symbol {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    background-image: url('assets/heart.png'); /* Heart image URL */
+    background-size: cover;
+    animation: floatUp 10s linear infinite;
+    opacity: 0.8;
+}
+
+.birthday-balloon {
+    position: absolute;
+    width: 60px;
+    height: 80px;
+    background-image: url('assets/balloon.png'); /* Balloon image URL */
+    background-size: cover;
+    animation: floatUp 12s linear infinite;
+    opacity: 0.9;
+}
+
+.sparkle {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background-image: url('assets/sparkle.png'); /* Sparkle image URL */
+    background-size: cover;
+    animation: floatUp 8s linear infinite;
+    opacity: 0.7;
+}
+
+.yellow-dot {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background-color: #FFD700; /* Gold color */
+    border-radius: 50%;
+    animation: floatUp 6s linear infinite;
+    opacity: 0.6;
+}
+
+/* Happy Birthday Message Drop-Down */
+@keyframes dropDown {
+    from { top: -100px; opacity: 0; }
+    to { top: 20px; opacity: 1; }
+}
+
+.happy-birthday {
+    position: absolute;
+    top: -100px; /* Start above the viewport */
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: rgba(255, 182, 193, 0.8); /* Light pink with transparency */
+    padding: 20px 40px;
+    border-radius: 10px;
+    font-family: 'Great Vibes', cursive;
+    font-size: 2em;
+    color: #d81b60;
+    animation: dropDown 1.5s forwards;
+    z-index: 3;
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+    .content {
+        padding: 30px 20px;
+    }
+
+    .message {
+        font-size: 1.5em;
+    }
+
+    .btn {
+        padding: 12px 20px;
+        font-size: 0.9em;
+    }
+
+    .cake-container {
+        bottom: 30px;
+    }
+
+    .cake img {
+        max-width: 150px;
+    }
+
+    .happy-birthday {
+        font-size: 1.5em;
+        padding: 15px 30px;
+    }
+}

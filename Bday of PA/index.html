@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday!</title>
+    <!-- Google Fonts for Elegant Typography -->
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Roboto&display=swap" rel="stylesheet">
+    <!-- Link to CSS -->
+    <link rel="stylesheet" href="styles.css">
+    <!-- Confetti Library from CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
+</head>
+<body class="dark-theme">
+    <div class="container">
+        <!-- Content Area -->
+        <div id="content" class="content">
+            <p class="message">Hey, it's your Special Day! 🎉 Do you want to see what I made?</p>
+            <div class="buttons">
+                <button id="yes-btn" class="btn">Yes</button>
+                <button id="no-btn" class="btn">No</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Audio -->
+    <audio id="birthday-music" src="assets/birthday_song.mp3"></audio>
+
+    <!-- Happy Birthday Message -->
+    <div id="happy-birthday" class="happy-birthday hidden">
+        <p>Happy Birthday!</p>
+    </div>
+
+    <!-- Cake Image -->
+    <div id="cake-container" class="cake-container hidden">
+        <div id="cake" class="cake">
+            <img src="assets/cake.png" alt="Cake">
+        </div>
+    </div>
+
+    <!-- Background Animations Container -->
+    <div id="background-animations" class="background-animations"></div>
+
+    <!-- Script -->
+    <script src="script.js"></script>
+</body>
+</html>
